@@ -1,10 +1,10 @@
 <template>
   <div
-    class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
-    @click="closeModal"
+    class="fixed inset-0 bg-black bg-opacity-50 flex justify-end items-center z-50"
+    @click.stop="closeModal"
   >
     <div
-      class="bg-white rounded-lg shadow-lg w-[400px] max-h-[80vh] overflow-y-auto p-4"
+      class="bg-white rounded-lg shadow-lg w-[500px] h-full overflow-y-auto p-4"
       @click.stop
     >
       <!-- Header -->

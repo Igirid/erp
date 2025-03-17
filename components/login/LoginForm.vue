@@ -21,6 +21,9 @@ const onSubmit = () => {
   <div
     class="h-screen flex flex-col justify-center items-center bg-gradient-to-b from-white to-blue-100"
   >
+    <!-- <div class="flex justify-center mb-12">
+      <img src="/logo.svg" alt="Logo" class="w-12 h-12" />
+    </div> -->
     <div class="flex gap-1 items-center justify-center mb-12">
       <img src="/logo.svg" alt="Logo" class="w-12 h-12" />
       <p class="text-lg font-semibold">Remedial ERP</p>
@@ -48,7 +51,7 @@ const onSubmit = () => {
               type="text"
               v-model="phone"
               placeholder="801020202020"
-              class="pl-20 w-full border border-gray-300 rounded-lg p-3 focus:ring-blue-500 focus:border-blue-500"
+              class="pl-20 w-full border bg-white border-gray-300 rounded-lg p-3 focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
         </div>
@@ -76,7 +79,7 @@ const onSubmit = () => {
           <input
             type="checkbox"
             v-model="rememberMe"
-            class="rounded border-gray-300 focus:ring-blue-500"
+            class="rounded border-gray-300 focus:ring-blue-500 bg-white"
           />
           <span class="text-sm text-gray-600">Keep me signed in</span>
         </div>
@@ -84,7 +87,7 @@ const onSubmit = () => {
         <NuxtLink to="/dashboard">
           <button
             type="submit"
-            class="w-full bg-blue-600 text-white rounded-lg p-3 text-center hover:bg-blue-700 transition"
+            class="w-full bg-blue-600 text-white rounded-lg py-1 px-3 text-center hover:bg-blue-700 transition"
           >
             Proceed
           </button>
@@ -93,7 +96,9 @@ const onSubmit = () => {
       <div class="border border-t border-gray-300 my-6"></div>
 
       <div class="text-center text-sm text-gray-500">
-        <a href="#" class="hover:text-blue-600">Forgot Password?</a>
+        <NuxtLink to="/passwords/forgot">
+          <span class="hover:text-blue-600">Forgot Password?</span>
+        </NuxtLink>
       </div>
     </div>
   </div>

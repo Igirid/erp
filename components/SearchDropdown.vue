@@ -11,7 +11,7 @@ const props = defineProps<{
       <slot name="trigger"></slot>
     </div>
 
-    <div v-if="props.isOpen" class="absolute bg-white border shadow-lg rounded-lg mt-2 w-48 z-50">
+    <div v-if="props.isOpen" class="absolute bg-white shadow-lg rounded-lg mt-2 w-auto z-50">
       <slot></slot>
     </div>
   </div>

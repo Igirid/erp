@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-bg-sunken">
+  <div class="min-h-screen bg-gray-100">
     <main class="mx-auto">
       <slot />
     </main>
@@ -7,3 +7,12 @@
 </template>
 
 <script setup lang="ts"></script>
+
+<style scoped>
+input {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: white !important;
+  color: black !important;
+}
+</style>

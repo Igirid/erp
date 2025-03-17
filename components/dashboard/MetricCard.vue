@@ -3,7 +3,7 @@
     class="bg-white p-6 rounded-lg shadow flex justify-between items-center text-text-default"
   >
     <div>
-      <h3 class="text-sm font-medium">{{ title }}</h3>
+      <h3 class="text-sm font-semibold text-gray-500">{{ title }}</h3>
       <div class="flex items-center mt-2">
         <span
           :class="{
@@ -27,7 +27,7 @@
       <p v-if="comparison" class="text-xs text-gray-500 mt-1">
         {{ comparison }}
       </p>
-      <p v-if="showCompared" class="text-xs">Compared to last month</p>
+      <p v-if="showCompared" class="text-xs text-gray-500 font-medium">Compared to last month</p>
     </div>
 
     <!-- Mini Chart -->

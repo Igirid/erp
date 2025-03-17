@@ -24,6 +24,7 @@ const sortedSuppliers = computed(() => {
 
 const { search, filteredSuppliers, selectedStatus } =
   useFilter(sortedSuppliers);
+
 const { page, paginatedItems, totalPages } = usePagination(
   filteredSuppliers,
   10
@@ -32,6 +33,24 @@ const { page, paginatedItems, totalPages } = usePagination(
 const { showModal, openModal, closeModal } = useModal();
 
 const { tabs, activeTab } = useNavtabs();
+const filteredData = computed(() => {
+  if (!search.value) return filteredSuppliers.value;
+  return filteredSuppliers.value.filter((row) =>
+    row.supplierName.toLowerCase().includes(search.value.toLowerCase())
+  );
+});
+
+const isFilterOpen = ref(false);
+
+const handleFilterSelection = (filter: string) => {
+  console.log("Selected filter:", filter);
+};
+
+const isFilterModalOpen = ref(false);
+
+const handleFilterApply = (filters: any) => {
+  console.log("Filters Applied:", filters);
+};
 </script>
 
 <template>
@@ -58,13 +77,31 @@ const { tabs, activeTab } = useNavtabs();
       </div> -->
 
       <div class="px-8">
-        <h1 class=" text-lightBlack font-medium">All Suppliers</h1>
-        <div class="flex items-center justify-between py-4">
+        <div class="my-2 px-2">
+          <h1 class="text-lightBlack text-sm font-medium">All Suppliers</h1>
+        </div>
+        <div class="flex items-center justify-between py-4 px-2">
           <Search
             v-model:isAscending="isAscending"
             v-model="search"
             v-model:selectedStatus="selectedStatus"
-          />
+            @filterOpen="isFilterOpen = true"
+            @filterModalOpen="isFilterModalOpen = true"
+            ><template #filter-modal>
+              <UiFilterModal
+                :isOpen="isFilterModalOpen"
+                @close="isFilterModalOpen = false"
+                @apply="handleFilterApply"
+              />
+            </template>
+            <template #filter-dropdown>
+              <UiFilterDropdown
+                :isOpen="isFilterOpen"
+                @close="isFilterOpen = false"
+                @select="handleFilterSelection"
+              />
+            </template>
+          </Search>
 
           <button
             @click="openModal"
@@ -76,8 +113,12 @@ const { tabs, activeTab } = useNavtabs();
         </div>
       </div>
 
+      <!-- <button @click="isFilterOpen = true" class="btn-dropdown">
+        Open Filter
+      </button> -->
+
       <div class="px-8">
-        <div class="bg-white py-4">
+        <div class="py-2 px-2">
           <SupplierTable
             :suppliers="paginatedItems"
             v-model:search="search"
@@ -93,6 +134,7 @@ const { tabs, activeTab } = useNavtabs();
           </div>
           <SupplierModal v-model="showModal" />
         </div>
+        <CustomPagination v-model:currentPage="page" :totalPages="totalPages" />
       </div>
     </div>
   </div>

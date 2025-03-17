@@ -7,10 +7,10 @@
             :to="item.url"
             class="block py-4 text-xs font-semibold"
             :class="{
-              'border-b-2 border-blue-600 text-blue-600 font-medium': isActive(
+              'border-b-2 border-blue-600 text-blue-600 font-medium ': isActive(
                 item.url
               ),
-              'text-gray-600  hover:text-gray-900': !isActive(item.url),
+              'text-gray-600  hover:text-gray-900 hover:border-b-2 hover:border-gray-200': !isActive(item.url),
             }"
           >
             {{ item.label }}
@@ -29,7 +29,7 @@ const route = useRoute();
 const navItems = [
   { label: "Dashboard", url: "/dashboard" },
   { label: "All Suppliers", url: "/suppliers" },
-  { label: "Purchase Order", url: "/purchase-order" },
+  { label: "Purchase Order", url: "/purchase" },
   { label: "Payments", url: "/payments" },
   { label: "Supplier's Return", url: "/suppliers-return" },
   { label: "Product Requests", url: "/product-requests" },

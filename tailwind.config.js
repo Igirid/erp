@@ -11,7 +11,8 @@ module.exports = {
           subtle: "#44546F",
         },
         bg: {
-          default: "#C9372C",
+          default2: "#C9372C",
+          default: "#44546F",
           neutral: "rgba(9, 30, 66, 0.06)",
           sunken: "#F7F8F9",
         },
