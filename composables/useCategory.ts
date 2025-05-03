@@ -22,9 +22,25 @@ export const useCategory = () => {
       avatar: "https://randomuser.me/api/portraits/women/62.jpg",
     },
   ]);
+  const paymentCategory = ref<Option | null>(null);
+
+  const paymentCategories = ref([
+    {
+      id: 1,
+      name: "Medical",
+      position: "CEO",
+      avatar: "https://randomuser.me/api/portraits/men/62.jpg",
+    },
+    {
+      id: 2,
+      name: "Logistics",
+      position: "COO",
+      avatar: "https://randomuser.me/api/portraits/women/62.jpg",
+    },
+  ]);
 
   const setCategory = (category: Option) => {
     supplierCategory.value = category;
   };
-  return { supplierCategories, supplierCategory, setCategory };
+  return { supplierCategories, supplierCategory, setCategory, paymentCategories, paymentCategory };
 };

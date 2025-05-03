@@ -3,21 +3,29 @@
   <!-- v-if="isOpen" -->
   <div class=""  @click.stop>
     <div @click.self="closeModal" class="modal-container">
-      <h3 class="modal-title">Filter</h3>
+
+      <div class="px-6 mt-2">
+
+        <h3 class="modal-title">Filter</h3>
+      </div>
+
+      <div class="border border-gray-200"></div>
+<div class="px-6 space-y-4 pb-4">
+
 
       <!-- Date Range Filters -->
       <div class="grid grid-cols-2 gap-4">
         <div>
           <label class="label">From</label>
           <div class="input-container">
-            <input type="date" v-model="filters.fromDate" class="input text-sm text-gray-500" />
+            <input type="date" v-model="filters.fromDate" class="bg-white input text-sm text-gray-500" />
             <!-- <LucideCalendar class="icon" /> -->
           </div>
         </div>
         <div>
           <label class="label">To</label>
           <div class="input-container">
-            <input type="date" v-model="filters.toDate" class="input text-sm text-gray-500" />
+            <input type="date" v-model="filters.toDate" class="bg-white input text-sm text-gray-500" />
             <!-- <LucideCalendar class="icon" /> -->
           </div>
         </div>
@@ -68,6 +76,7 @@
         <button class="btn-apply" @click="applyFilters">Apply</button>
       </div>
     </div>
+    </div>
   </div>
 </template>
 
@@ -116,11 +125,11 @@ const applyFilters = () => {
 }
 
 .modal-container {
-  @apply bg-white shadow-lg rounded-lg p-6 w-[427px] space-y-4;
+  @apply bg-white shadow-lg rounded-lg w-[427px] space-y-4;
 }
 
 .modal-title {
-  @apply text-lg font-semibold mb-4 text-gray-700;
+  @apply font-semibold mb-4 text-gray-600;
 }
 
 .label {
@@ -128,7 +137,7 @@ const applyFilters = () => {
 }
 
 .input {
-  @apply w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300;
+  @apply w-full px-3 py-2 border-[2px] border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300;
 }
 
 .input-container {

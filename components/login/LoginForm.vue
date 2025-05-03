@@ -24,13 +24,16 @@ const onSubmit = () => {
     <!-- <div class="flex justify-center mb-12">
       <img src="/logo.svg" alt="Logo" class="w-12 h-12" />
     </div> -->
+    
+    
     <div class="flex gap-1 items-center justify-center mb-12">
       <img src="/logo.svg" alt="Logo" class="w-12 h-12" />
-      <p class="text-lg font-semibold">Remedial ERP</p>
+      <p class="text-gray-700 text-lg font-semibold">Remedial ERP</p>
     </div>
+ 
 
     <div class="w-full max-w-[386px] bg-white shadow-lg rounded-2xl p-10">
-      <h3 class="text-left text-gray-500 text-sm mb-2">PROCUREMENT</h3>
+      <!-- <h3 class="text-left text-gray-500 text-sm mb-2">PROCUREMENT</h3> -->
       <h2 class="text-left text-2xl font-semibold text-gray-800 mb-6">
         Sign in to your account
       </h2>
@@ -63,7 +66,7 @@ const onSubmit = () => {
               :type="showPassword ? 'text' : 'password'"
               v-model="password"
               placeholder="************"
-              class="w-full border border-gray-300 rounded-lg p-3 pr-12 focus:ring-blue-500 focus:border-blue-500"
+              class="w-full border bg-white border-gray-300 rounded-lg p-3 pr-12 focus:ring-blue-500 focus:border-blue-500"
             />
             <div
               class="absolute right-3 top-3 cursor-pointer"
@@ -75,13 +78,14 @@ const onSubmit = () => {
           </div>
         </div>
 
-        <div class="mb-6 flex items-center gap-2">
+        <div class="mb-6 flex items-center gap-2 bg-white">
+        
           <input
             type="checkbox"
             v-model="rememberMe"
-            class="rounded border-gray-300 focus:ring-blue-500 bg-white"
+            class="rounded border border-gray-300 ring focus:ring-blue-500 px-1.5 appearance-none checked:appearance-auto py-1.5 bg-white outline-blue-500"
           />
-          <span class="text-sm text-gray-600">Keep me signed in</span>
+          <label class="bg-white text-sm text-gray-600">Keep me signed in</label>
         </div>
 
         <NuxtLink to="/dashboard">

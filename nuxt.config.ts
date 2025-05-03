@@ -8,6 +8,8 @@ export default defineNuxtConfig({
     "nuxt-echarts",
     "nuxt-lucide-icons",
     "@primevue/nuxt-module",
+    "@nuxtjs/color-mode",
+    "@nuxt/image",
   ],
 
   postcss: {
@@ -24,10 +26,14 @@ export default defineNuxtConfig({
         preset: "Aura",
         options: {
           prefix: "p",
-          darkModeSelector: "system",
+          // darkModeSelector: "system",
           cssLayer: false,
         },
       },
     },
+  },
+  colorMode: {
+    preference: "light", // default value of $colorMode.preference
+    fallback: "light", // fallback value if not system preference found
   },
 });

@@ -21,7 +21,7 @@ const emit = defineEmits([
 ]);
 
 const { isOpen, toggle } = useDropdown();
-const { isModalOpen, toggleModal } = useFilterModal();
+const { modalTypeOpen, toggleModal, ModalTypes } = useFilterModal();
 </script>
 
 <template>
@@ -40,10 +40,10 @@ const { isModalOpen, toggleModal } = useFilterModal();
     </div>
 
     <!-- Filter SearchSearchDropdown -->
-    <SearchDropdown :isOpen="isOpen" :toggle="toggle">
+    <SearchDropdown :isOpen="modalTypeOpen == 'filter'" :toggle="()=>toggleModal(`filter`)" :alignLeft="true">
       <template #trigger>
         <div
-          class="border-l-2 border-gray-300 px-4 py-2 flex items-center bg-gray-200"
+          class="border-l-2 border-gray-300 px-4 py-2 flex items-center bg-gray-50"
         >
           <LucideListFilter
             class="w-4 h-4 text-gray-600"
@@ -52,7 +52,7 @@ const { isModalOpen, toggleModal } = useFilterModal();
           />
         </div>
       </template>
-      <slot name="filter-modal"></slot>
+      <slot name="filter-modal" class=""></slot>
 
       <!-- <SelectBox :modelValue="selectedStatus" 
         :isOpen="isOpen"
@@ -73,12 +73,13 @@ const { isModalOpen, toggleModal } = useFilterModal();
     <!-- Sort SearchDropdown -->
     <!-- @click="emit('update:isAscending', !props.isAscending)" -->
     <SearchDropdown
-      :isOpen="isModalOpen"
-      :toggle="toggleModal"
+      :isOpen="modalTypeOpen == 'sort' "
+      :toggle="()=>toggleModal(`sort`)"
+      :alignLeft="false"
     >
       <template #trigger>
         <div
-          class="border-l-2 border-gray-300 px-4 py-2 flex items-center bg-gray-200"
+          class="border-l-2 border-gray-300 px-4 py-2 flex items-center bg-gray-50"
         >
           <LucideArrowUpDown
             class="w-4 h-4 text-gray-600"

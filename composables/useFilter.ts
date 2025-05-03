@@ -1,31 +1,26 @@
-interface Supplier{
-      id: number; 
-      supplierName: string; 
-      contactName: string; 
-      phone: string; 
-      category: string; 
-      status: string;
+interface Named {
+  supplierName: string;
 }
 
-export const useFilter = (suppliers: Ref<Supplier[]>) => {
+export const useFilter = (toFilter: Ref<Named[]>) => {
   const search = ref("");
   const selectedStatus = ref("");
 
   // Combined Filter
-  const filteredSuppliers = computed(() =>
-    suppliers.value.filter((supplier) => {
+  const filtered = computed(() =>
+    toFilter.value.filter((item) => {
       // Search filter
-      const matchesSearch = supplier.supplierName
+      const matchesSearch = item.supplierName
         .toLowerCase()
         .includes(search.value.toLowerCase());
 
+        return matchesSearch;
       // Status filter
-      const matchesStatus =
-        !selectedStatus.value || supplier.status.toLowerCase() === selectedStatus.value.toLowerCase();
-
-      return matchesSearch && matchesStatus;
+      // const matchesStatus =
+      //   !selectedStatus.value || supplier.status.toLowerCase() === selectedStatus.value.toLowerCase();
+      // return matchesSearch && matchesStatus;
     })
   );
 
-  return { search, selectedStatus, filteredSuppliers };
+  return { search, selectedStatus, filtered };
 };

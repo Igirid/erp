@@ -32,17 +32,18 @@
     </div>
 
     <div class="mt-5">
-      <Role v-if="activeLink == 'roles'"/>
-      <Activities v-else-if="activeLink == 'activities'"/>
-      <Activities v-else-if="activeLink == 'security'"/>
-      <Activities v-else-if="activeLink == 'account-details'"/>
+      <ProfileTabsRole v-if="activeLink == 'roles'"/>
+      <ProfileTabsActivities v-else-if="activeLink == 'activities'"/>
+      <ProfileTabsSecurity v-else-if="activeLink == 'security'"/>
+      <ProfileTabsDetails v-else-if="activeLink == 'account-details'"/>
     </div>
   </main>
 </template>
 
 <script setup lang="ts">
-import Activities from './activities.vue';
-import Role from './role.vue';
+// import Role from '~/components/profile/tabs/role.vue';
+
+
 const route = useRoute();
 const router = useRouter();
 

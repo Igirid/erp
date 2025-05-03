@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  color: inherit;
+}
+@layer base {
+  @font-face {
+    font-family: 'sfPro';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/fonts/sf-pro-display/SFPRODISPLAYREGULAR.OTF);
+  }
+  @font-face {
+    font-family: 'sfPro';
+    font-style: medium;
+    font-weight: 500;
+    font-display: swap;
+    src: url(/fonts/sf-pro-display/SFPRODISPLAYMEDIUM.OTF);
+  }
+}

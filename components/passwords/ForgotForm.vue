@@ -27,21 +27,21 @@ const submitForgotPassword = () => {
       </button>
     </NuxtLink>
     <!-- Form Card -->
-   <!--
-     <div class="flex justify-center mb-6">
+    <!-- <div class="flex justify-center mb-6">
       <img src="/logo.svg" alt="Logo" class="w-12 h-12" />
+    </div> -->
+       
+    
+    <div class="flex gap-1 items-center justify-center mb-12">
+      <img src="/logo.svg" alt="Logo" class="w-12 h-12" />
+      <p class="text-gray-700 text-lg font-semibold">Remedial ERP</p>
     </div>
-  -->
-
-       <div class="flex gap-1 items-center justify-center mb-12">
-          <img src="/logo.svg" alt="Logo" class="w-12 h-12" />
-          <p class="text-lg font-semibold">Remedial ERP</p>
-        </div>
+ 
     <div class="w-full max-w-[386px] bg-white shadow-lg rounded-2xl p-10">
       <!-- Logo (Centered) -->
 
       <!-- Back Button -->
-      <h3 class="text-left text-gray-500 text-sm mb-2">PROCUREMENT</h3>
+      <!-- <h3 class="text-left text-gray-500 text-sm mb-2">PROCUREMENT</h3> -->
       <h2 class="text-left text-2xl font-semibold text-default mb-6">
         Forgot Password?
       </h2>
@@ -69,7 +69,7 @@ const submitForgotPassword = () => {
 
         <!-- OTP Code -->
         <div class="space-y-3">
-          <label class="text-gray-700 text-sm font-medium">OTP Code</label>
+          <label class="text-gray-700 text-sm font-medium bg-white">OTP Code</label>
           <input
             type="text"
             v-model="otp"
@@ -93,7 +93,7 @@ const submitForgotPassword = () => {
             type="password"
             v-model="newPin"
             placeholder="****"
-            class="w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-200"
+            class="bg-white w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-200"
             required
           />
         </div>

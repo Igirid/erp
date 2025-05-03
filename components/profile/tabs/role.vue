@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import UserRoleTable from '../../components/profile/userRoleTable.vue';
+import UserRoleTable from '../userRoleTable.vue';
 import femiAvater from "../../assets/images/femiImg.png"
 import joshAvater from "../../assets/images/joshImg.png"
 import janeAvater from "../../assets/images/janeImg.png"

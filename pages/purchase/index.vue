@@ -5,16 +5,16 @@
         </div>
 
         <div v-else class="py-4">
-            <div class="bg-[#F7F8F9] border-b border-[#091E4224] px-6 relative">
+            <div class="bg-[#F7F8F9] border-b border-[#091E4224] px-8 relative">
                 <!-- Breadcrumb -->
-                <div class="text-[#626F86] text-sm mb-5 space-x-2">
+                <div class="text-[#626F86] text-sm mb-5 space-x-2 px-3">
                     <span>Purchase Order</span>
                     <span>/</span>
                     <span class="font-semibold">{{ activeLink.label }}</span>
                 </div>
 
                 <!-- Navigation Tabs -->
-                <div class="flex w-full items-baseline">
+                <div class="flex w-full items-baseline px-3">
                     <a v-for="(link, index) in links" :key="index" href="#"
                         class="py-3 px-4 text-xs font-semibold text-[#44546F] transition-colors duration-300 rounded-t-md relative"
                         :class="{

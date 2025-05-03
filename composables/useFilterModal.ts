@@ -1,25 +1,35 @@
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted } from "vue";
+
+enum ModalTypes {
+  "sort",
+  "filter",
+  "none",
+}
 
 export const useFilterModal = () => {
-  const isModalOpen = ref(false)
+  const modalTypeOpen = ref<keyof typeof ModalTypes>("none");
 
-  const toggleModal = () => {
-    isModalOpen.value = !isModalOpen.value
-  }
+  const toggleModal = (type: keyof typeof ModalTypes) => {
+    if (modalTypeOpen.value != type) {
+      modalTypeOpen.value = type;
+    } else {
+      modalTypeOpen.value = "none";
+    }
+  };
 
   const close = (event: Event) => {
-    if (!(event.target as HTMLElement).closest('.dropdown')) {
-      isModalOpen.value = false
+    if (!(event.target as HTMLElement).closest(".dropdown")) {
+      modalTypeOpen.value = "none";
     }
-  }
+  };
 
   onMounted(() => {
-    window.addEventListener('click', close)
-  })
+    window.addEventListener("click", close);
+  });
 
   onUnmounted(() => {
-    window.removeEventListener('click', close)
-  })
+    window.removeEventListener("click", close);
+  });
 
-  return { isModalOpen, toggleModal }
-}
+  return { modalTypeOpen, toggleModal, ModalTypes };
+};

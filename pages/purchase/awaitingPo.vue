@@ -1,18 +1,40 @@
 <template>
     <main>
         <!-- Top Bar -->
-        <div class="flex justify-between items-center">
-            <Search v-model:modelValue="search" v-model:isAscending="isAscending"
+        <div class="flex justify-between items-center px-4">
+            <Search
+            v-model:isAscending="isAscending"
+            v-model="search"
+            v-model:selectedStatus="selectedStatus"
+            @filterOpen="isOpen = true"
+            @filterModalOpen="isModalOpen = true"
+            ><template #filter-modal>
+              <UiFilterModal
+                :isOpen="isModalOpen"
+                @close="isModalOpen = false"
+                @apply="handleFilterApply"
+              />
+            </template>
+            <template #filter-dropdown>
+              <UiFilterDropdown
+                :isOpen="isOpen"
+                @close="isOpen = false"
+                @select="handleFilterSelection"
+              />
+            </template>
+          </Search>
+
+            <!-- <Search v-model:modelValue="search" v-model:isAscending="isAscending"
                 v-model:selectedStatus="selectedStatus" />
 
             <button @click="openCreatePurchaseOrder"
                 class="bg-blue-600 text-white flex !items-center justify-center gap-2 text-xs font-semibold px-4 py-1 rounded hover:bg-blue-700">
                 <span class="text-lg mb-[2px]">+</span> <span>Create Purchase Order</span>
-            </button>
+            </button> -->
         </div>
 
         <!-- Table Component -->
-        <div class="mt-6">
+        <div class="mt-6 px-4">
             <PurchaseOrderTable :headers="headers" :data="paginatedItems">
                 <template #assigned="{ row }">
                     <div class="flex items-center space-x-2">
@@ -116,5 +138,15 @@ const emit = defineEmits(["createPurchaseOrder"]);
 const openCreatePurchaseOrder = () => {
     router.push({ query: { ...router.currentRoute.value.query, create: "true" } }); 
     emit("createPurchaseOrder");
+};
+
+const {isOpen, toggle} = useDropdown()
+const {isModalOpen, toggleModal} = useFilterModal()
+const handleFilterSelection = (filter: string) => {
+  console.log("Selected filter:", filter);
+};
+
+const handleFilterApply = (filters: any) => {
+  console.log("Filters Applied:", filters);
 };
 </script>

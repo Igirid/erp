@@ -6,13 +6,15 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+
+//color: black !important;
+</script>
 
 <style scoped>
 input {
   appearance: none;
   -webkit-appearance: none;
   background-color: white !important;
-  color: black !important;
 }
 </style>

@@ -3,7 +3,7 @@
         <table class="w-full">
             <!-- Table Head -->
             <thead class="bg-[#F7F8F9]">
-                <tr class="text-left border-b border-[#091E4224] text-gray-600 text-xs">
+                <tr class="text-left border-b border-[#091E4224] text-gray-500 font-thin text-xs">
                     <th v-for="header in headers" :key="header.value" class="py-2 px-4 cursor-pointer"
                         @click="header.sortable ? updateSort(header.value) : null">
                         <span class="flex items-center space-x-1">

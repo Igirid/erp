@@ -171,7 +171,7 @@ const supplierBank = ref(null);
                 >Opening Balance</label
               >
               <input
-                type="number"
+                type="text"
                 placeholder="₦ Enter the initial balance"
                 class="w-full border-2 border-gray-300 rounded-lg py-1.5 px-3 bg-white"
               />
@@ -208,10 +208,11 @@ const supplierBank = ref(null);
                 >Account Number</label
               >
               <input
-                type="number"
+                type="text"
                 placeholder="Enter the account number"
-                class="w-full border-2 border-gray-300 rounded-lg py-1.5 px-3 bg-white"
-              />
+                class="appearance-none w-full border-2 border-gray-300 rounded-lg py-1.5 px-3 bg-white"
+               style="--tw-shadow: none;"
+                />
             </div>
 
             <div>
@@ -253,4 +254,5 @@ const supplierBank = ref(null);
 .slide-leave-to {
   transform: translateX(100%);
 }
+
 </style>

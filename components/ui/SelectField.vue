@@ -14,7 +14,7 @@
           />
           <input
             :placeholder="placeholder"
-            class="px-2 appearance-none outline-none w-full text-gray-800"
+            class="px-2 appearance-none outline-none w-full text-gray-800 bg-white"
             v-model="searchTerm"
             @focus="handleFocus"
             @blur="handleBlur"
@@ -49,7 +49,7 @@
               class="flex w-full items-center py-1.5 px-3 pl-2 border-transparent border-l-2 relative hover:border-gray-200"
             >
               <div class="w-full flex items-center justify-between">
-                <div class="mx-2 -mt-1">
+                <div class="mx-2 -mt-1 text-gray-500">
                   {{ option.name }}
                 </div>
               </div>
